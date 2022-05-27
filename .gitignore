@@ -4,6 +4,7 @@ node_modules
 /proDist
 /testDist
 yarn.lock
+pnpm-lock.yaml
 
 .pnp.*
 .yarn/*
