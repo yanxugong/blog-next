@@ -1,35 +1,5 @@
-.DS_Store
 node_modules
-/dist
-/proDist
-/testDist
+package-lock.json
 yarn.lock
 pnpm-lock.yaml
-
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-
-# local env files
-.env.local
-.env.*.local
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-.env.local
+.pnpm-debug.log

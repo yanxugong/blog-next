@@ -1,4 +1,4 @@
-English | [简体中文](./README.zh-CN.md)
+[English](./README.md) | 简体中文
 
 <p align="center">
   <a href="https://yanxugong.github.io/blog/" target="_blank" rel="noopener noreferrer">
@@ -6,11 +6,10 @@ English | [简体中文](./README.zh-CN.md)
   </a>
 </p>
 
-# Yanxu Gong's Blog 🏳️‍🌈
+# 龚彦旭的博客 🏳️‍🌈
 
-> Personal blog based on Github Action + Vuepress.
+> 基于 Github Action + Vuepress 的个人博客。
 
-- 📗 Study
-- 🤳 Photography
-- ❤ Emotion
-
+- 📗 学习
+- 🤳 摄影
+- ❤ 情感
