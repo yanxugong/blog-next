@@ -1,39 +1,42 @@
 # 这是一个基本的工作流，可以帮助您开始操作
 
-name: CI
+name: Deploy to Gitee
 
 # 控制操作何时运行
 on:
   # 触发推送或拉送请求事件的工作流，但仅针对主分支
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-  # 允许您从“操作”选项卡手动运行此工作流
-  workflow_dispatch:
+    branches: [main]
 
 # 工作流运行由一个或多个可以顺序或并行运行的作业组成
 jobs:
   # 此工作流包含一个名为“ build ”的作业
-  build:
+  deploy:
     # 作业将在其上运行的运行程序的类型
     runs-on: ubuntu-latest
 
     # steps 表示将作为作业的一部分执行的任务序列
     steps:
-      # 在 $GITHUB_WORKSPACE 下签出您的存储库，以便您的作业可以访问它
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      # 使用 runners shell 运行单个命令
-      # - name: Run a one-line script
-      #   run: echo Hello, world!
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 6
+
+      - name: Set node version to 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          registry-url: https://registry.npmjs.org/
+          cache: "pnpm"
 
       # 使用 runners shell 运行一组命令
       - name: Install and Build 🔧
         run: |
-          npm install
-          npm run build
+          pnpm install
+          pnpm run build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
