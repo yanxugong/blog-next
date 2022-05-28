@@ -4,7 +4,7 @@ const pkg = require("../../package.json");
 
 export default defineConfig({
   // 部署站点的基础路径
-  // base: "/",
+  base: "/blog-next",
   // 标题
   title: "Yanxu Gong's Blog",
   lang: "zh-CN",
