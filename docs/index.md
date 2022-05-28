@@ -1,10 +1,11 @@
 ---
 home: true
-heroImage: /bg.jpg
+heroImage: logo.svg
 heroText: Yanxu Gong's Blog
 tagline: 🌈 好时光都该被宝贝因为有限 🛫
-actionText: 开始 →
+actionText: 开始
 actionLink: /study/
+
 features:
   - title: 学习
     details: 学习必须与实干相结合。
