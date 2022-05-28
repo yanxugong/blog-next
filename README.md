@@ -8,7 +8,7 @@ English | [简体中文](./README.zh-CN.md)
 
 # Yanxu Gong's Blog 🏳️‍🌈
 
-> Personal blog based on Github Action + Vitepress.
+> Personal blog based on Github Action + VitePress.
 
 - 📗 Study
 - 🤳 Photography
