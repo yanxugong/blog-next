@@ -5,9 +5,9 @@
   "repository": "https://github.com/yanxugong/blog-next",
   "license": "MIT",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
   },
   "devDependencies": {
     "vitepress": "^0.22.4"
