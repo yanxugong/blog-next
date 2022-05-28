@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>「重学算法」快速掌握链表题 | Yanxu Gong's Blog</title>
+    <meta name="description" content="Personal blog based on Github Action + VitePress">
+    <link rel="stylesheet" href="/assets/style.88a1b92e.css">
+    <link rel="modulepreload" href="/assets/chunks/AlgoliaSearchBox.9baa3721.js">
+    <link rel="modulepreload" href="/assets/app.c22de5e0.js">
+    <link rel="modulepreload" href="/assets/study_algorithm_linked-list.md.d9d561f4.lean.js">
+    
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <meta name="twitter:title" content="「重学算法」快速掌握链表题 | Yanxu Gong&#39;s Blog">
+  <meta property="og:title" content="「重学算法」快速掌握链表题 | Yanxu Gong&#39;s Blog">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-95cd145e><div class="sidebar-button" data-v-95cd145e><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/" aria-label="Yanxu Gong&#39;s Blog, back to home" data-v-95cd145e data-v-2627e0f1><img class="logo" src="/logo.svg" alt="Logo" data-v-2627e0f1> Yanxu Gong&#39;s Blog</a><div class="flex-grow" data-v-95cd145e></div><div class="nav" data-v-95cd145e><nav class="nav-links" data-v-95cd145e data-v-b68e4bf6><!--[--><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item active" href="/study/" data-v-43e5dab6>学习 <!----></a></div></div><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item" href="/photography/" data-v-43e5dab6>摄影 <!----></a></div></div><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item" href="/emotion/" data-v-43e5dab6>情感 <!----></a></div></div><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item" href="/about/" data-v-43e5dab6>关于 <!----></a></div></div><!--]--><!----><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item isExternal" href="https://github.com/yanxugong/blog-next" target="_blank" rel="noopener noreferrer" data-v-43e5dab6>GitHub <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-43e5dab6><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div></nav></div><!--[--><!--[--><div class="algolia-search-box" id="docsearch"></div><!--]--><!--]--></header><aside class="sidebar" data-v-1c2cc348><nav class="nav-links nav" data-v-1c2cc348 data-v-b68e4bf6><!--[--><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item active" href="/study/" data-v-43e5dab6>学习 <!----></a></div></div><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item" href="/photography/" data-v-43e5dab6>摄影 <!----></a></div></div><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item" href="/emotion/" data-v-43e5dab6>情感 <!----></a></div></div><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item" href="/about/" data-v-43e5dab6>关于 <!----></a></div></div><!--]--><!----><div class="item" data-v-b68e4bf6><div class="nav-link" data-v-b68e4bf6 data-v-43e5dab6><a class="item isExternal" href="https://github.com/yanxugong/blog-next" target="_blank" rel="noopener noreferrer" data-v-43e5dab6>GitHub <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-43e5dab6><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div></nav><!--[--><!--]--><ul class="sidebar-links" data-v-1c2cc348><!--[--><li class="sidebar-link"><a class="sidebar-link-item" href="#前言">前言</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#_206-反转链表">206. 反转链表</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#题目">题目</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#思路">思路</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#代码">代码</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#复杂度">复杂度</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="#_92-反转链表-ii">92. 反转链表 II</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#题目-1">题目</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#思路-1">思路</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#代码-1">代码</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#复杂度-1">复杂度</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="#_24-两两交换链表中的节点">24. 两两交换链表中的节点</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#题目-2">题目</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#思路-2">思路</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#代码-2">代码</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#复杂度-2">复杂度</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="#_25-k-个一组翻转链表">25. K 个一组翻转链表</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#题目-3">题目</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#思路-3">思路</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#代码-3">代码</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#复杂度-3">复杂度</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="#参考文章">参考文章</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#感谢">感谢</a><!----></li><!--]--></ul><!--[--><!--]--></aside><div class="sidebar-mask"></div><main class="page" data-v-3d00e640><div class="container" data-v-3d00e640><!--[--><!--]--><div style="position:relative;" class="content" data-v-3d00e640><div><h1 id="「重学算法」快速掌握链表题" tabindex="-1">「重学算法」快速掌握链表题 <a class="header-anchor" href="#「重学算法」快速掌握链表题" aria-hidden="true">#</a></h1><h2 id="前言" tabindex="-1">前言 <a class="header-anchor" href="#前言" aria-hidden="true">#</a></h2><p>算法是<strong>程序员必须修炼</strong>的一门<strong>内功</strong>（例如：张无忌修炼九阳神功），更是阿里、腾讯、字节这些<strong>大厂面试</strong>考察的重中之重。为了攻克算法面试拿下心仪 Offer，很多程序员面试前都会在 LeetCode 上疯狂刷题备战面试。</p><p>然而面对<strong>刷不完</strong>的题目，我们很难在短时间内全部熟练掌握，那该如何<strong>高效准备</strong>，<strong>快速掌握</strong>刷题、解题技巧，<strong>从容应对</strong>即将到来的算法面试？</p><p>我们可以从以下几个方面出发：</p><ul><li>数组、字符串、链表、队列、树、栈、队列、图、前缀树、分段树和树状数组等<strong>数据结构</strong>，逐个击破。</li><li>总结<strong>常用算法</strong>，归并、快排、拓扑，如何二分查找、递归、回溯，以及广度与深度优先、动态规划等。</li><li><strong>刻意练习</strong>，针对具有代表性的真题深入剖析，完善自己的算法知识体系。</li></ul><blockquote><p>温馨提示：本文主要说一说<strong>链表类</strong>题目的解决思路和代码。适合<strong>算法初学者</strong>、<strong>社招准备面试</strong>和<strong>对算法感兴趣</strong>的同学们。</p></blockquote><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/684d369a9cd5412b8b26317bb8dbdeea~tplv-k3u1fbpfcp-watermark.image" alt=""></p><h2 id="_206-反转链表" tabindex="-1">206. 反转链表 <a class="header-anchor" href="#_206-反转链表" aria-hidden="true">#</a></h2><h3 id="题目" tabindex="-1">题目 <a class="header-anchor" href="#题目" aria-hidden="true">#</a></h3><p>来源：<a href="https://leetcode-cn.com/problems/reverse-linked-list/" target="_blank" rel="noopener noreferrer">力扣（LeetCode）206 反转链表</a></p><p>难度：简单</p><div class="language-"><pre><code>反转一个单链表。
+
+示例:
+
+输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
+
+进阶:
+
+你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+</code></pre></div><h3 id="思路" tabindex="-1">思路 <a class="header-anchor" href="#思路" aria-hidden="true">#</a></h3><p>假设存在链表 1 → 2 → 3 → ∅ ，我们想要把它改成 ∅ ← 1 ← 2 ← 3 。</p><ul><li>在遍历列表时，将当前节点的 <code>next</code> 指针改为指向前一个元素。</li><li>由于节点没有引用其上一个节点，因此必须事先存储其前一个元素。</li><li>在更改引用之前，还需要另一个指针来存储下一个节点。</li><li>不要忘记在最后返回新的头引用！</li></ul><h3 id="代码" tabindex="-1">代码 <a class="header-anchor" href="#代码" aria-hidden="true">#</a></h3><div class="language-js"><pre><code><span class="token comment">/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */</span>
+
+<span class="token keyword">let</span> <span class="token function-variable function">reverseList</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">head</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> pre <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> cur <span class="token operator">=</span> head<span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>cur<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> nextCache <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    cur<span class="token punctuation">.</span>next <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+    pre <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+    cur <span class="token operator">=</span> nextCache<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> pre<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="复杂度" tabindex="-1">复杂度 <a class="header-anchor" href="#复杂度" aria-hidden="true">#</a></h3><ul><li>时间复杂度：O(n)，其中 n 是链表的长度。需要遍历链表一次。</li><li>空间复杂度：O(1)。</li></ul><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/88b8cc83b2a146d693cdbe42a3eb834b~tplv-k3u1fbpfcp-watermark.image" alt=""></p><h2 id="_92-反转链表-ii" tabindex="-1">92. 反转链表 II <a class="header-anchor" href="#_92-反转链表-ii" aria-hidden="true">#</a></h2><h3 id="题目-1" tabindex="-1">题目 <a class="header-anchor" href="#题目-1" aria-hidden="true">#</a></h3><p>来源：<a href="https://leetcode-cn.com/problems/reverse-linked-list-ii/" target="_blank" rel="noopener noreferrer">力扣（LeetCode）92 反转链表 II</a></p><p>难度：中等</p><div class="language-"><pre><code>反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
+
+说明:
+
+1 ≤ m ≤ n ≤ 链表长度。
+
+示例:
+
+
+输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4
+输出: 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL
+</code></pre></div><h3 id="思路-1" tabindex="-1">思路 <a class="header-anchor" href="#思路-1" aria-hidden="true">#</a></h3><p>假设我们需要反转下图中的蓝色区域。</p><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9a3553ab27874975903863ff24285876~tplv-k3u1fbpfcp-watermark.image" alt=""></p><p>使用「<code>206. 反转链表</code>」的解法，反转 left 到 right 部分以后，再拼接起来。我们还需要记录 left 的前一个节点，和 right 的后一个节点。如图所示：</p><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee87ed7a498749e0a62e466577c8eadd~tplv-k3u1fbpfcp-watermark.image" alt=""></p><p>算法逻辑：</p><ul><li>先将待反转的区域反转。</li><li>把 <code>pre</code> 的 <code>next</code> 指针指向反转后的链表头节点，反转后的链表尾节点的 <code>next</code> 指针指向 <code>succ</code> 。</li></ul><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/51c3c2b5769a49998192f1d71d6a1d95~tplv-k3u1fbpfcp-watermark.image" alt=""></p><blockquote><p>温馨提示：可以自己画图理清思路，后面编码会更顺畅。</p></blockquote><h3 id="代码-1" tabindex="-1">代码 <a class="header-anchor" href="#代码-1" aria-hidden="true">#</a></h3><div class="language-js"><pre><code><span class="token comment">/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">reverseBetween</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">head<span class="token punctuation">,</span> left<span class="token punctuation">,</span> right</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 因为头节点有可能发生变化，使用虚拟头节点可以避免复杂的分类讨论</span>
+  <span class="token keyword">const</span> dummyNode <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  dummyNode<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+
+  <span class="token keyword">let</span> pre <span class="token operator">=</span> dummyNode<span class="token punctuation">;</span>
+  <span class="token comment">// 第 1 步：从虚拟头节点走 left - 1 步，来到 left 节点的前一个节点</span>
+  <span class="token comment">// 建议写在 for 循环里，语义清晰</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> left <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    pre <span class="token operator">=</span> pre<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 第 2 步：从 pre 再走 right - left + 1 步，来到 right 节点</span>
+  <span class="token keyword">let</span> rightNode <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    rightNode <span class="token operator">=</span> rightNode<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 第 3 步：切断出一个子链表（截取链表）</span>
+  <span class="token keyword">let</span> leftNode <span class="token operator">=</span> pre<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+  <span class="token keyword">let</span> curr <span class="token operator">=</span> rightNode<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+
+  <span class="token comment">// 注意：切断链接</span>
+  pre<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  rightNode<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 第 4 步：同第 206 题，反转链表的子区间</span>
+  <span class="token function">reverseLinkedList</span><span class="token punctuation">(</span>leftNode<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 第 5 步：接回到原来的链表中</span>
+  pre<span class="token punctuation">.</span>next <span class="token operator">=</span> rightNode<span class="token punctuation">;</span>
+  leftNode<span class="token punctuation">.</span>next <span class="token operator">=</span> curr<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> dummyNode<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">reverseLinkedList</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">head</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> pre <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> cur <span class="token operator">=</span> head<span class="token punctuation">;</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>cur<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> next <span class="token operator">=</span> cur<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    cur<span class="token punctuation">.</span>next <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+    pre <span class="token operator">=</span> cur<span class="token punctuation">;</span>
+    cur <span class="token operator">=</span> next<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="复杂度-1" tabindex="-1">复杂度 <a class="header-anchor" href="#复杂度-1" aria-hidden="true">#</a></h3><ul><li>时间复杂度：O(n)，其中 n 是链表总节点数。最坏情况下，需要遍历整个链表。</li><li>空间复杂度：O(1)。只使用到常数个变量。</li></ul><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/270424920c0c44dd931c1eb5fbcfadaa~tplv-k3u1fbpfcp-watermark.image" alt=""></p><h2 id="_24-两两交换链表中的节点" tabindex="-1">24. 两两交换链表中的节点 <a class="header-anchor" href="#_24-两两交换链表中的节点" aria-hidden="true">#</a></h2><h3 id="题目-2" tabindex="-1">题目 <a class="header-anchor" href="#题目-2" aria-hidden="true">#</a></h3><p>来源：<a href="https://leetcode-cn.com/problems/swap-nodes-in-pairs/" target="_blank" rel="noopener noreferrer">力扣（LeetCode）24 两两交换链表中的节点</a></p><p>难度：中等</p><div class="language-"><pre><code>给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
+
+你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+
+示例 1：
+</code></pre></div><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f877a8b4275420cbe68e92e9722d89e~tplv-k3u1fbpfcp-zoom-1.image" alt=""></p><div class="language-"><pre><code>输入：head = [1,2,3,4]
+输出：[2,1,4,3]
+
+示例 2：
+
+输入：head = []
+输出：[]
+
+示例 3：
+
+输入：head = [1]
+输出：[1]
+
+提示：
+
+链表中节点的数目在范围 [0, 100] 内
+
+0 &lt;= Node.val &lt;= 100
+</code></pre></div><h3 id="思路-2" tabindex="-1">思路 <a class="header-anchor" href="#思路-2" aria-hidden="true">#</a></h3><p>可以通过递归的方式实现两两交换链表中的节点。</p><p>递归的终止条件是链表中没有节点，或者链表中只有一个节点，此时无法进行交换。</p><p>如果链表中至少有两个节点，则在两两交换链表中的节点之后，原始链表的头节点变成新的链表的第二个节点，原始链表的第二个节点变成新的链表的头节点。链表中的其余节点的两两交换可以递归地实现。在对链表中的其余节点递归地两两交换之后，更新节点之间的指针关系，即可完成整个链表的两两交换。</p><p>用 <code>head</code> 表示原始链表的头节点，新的链表的第二个节点，用 <code>newHead</code> 表示新的链表的头节点，原始链表的第二个节点，则原始链表中的其余节点的头节点是 <code>newHead.next</code>。令 <code>head.next = swapPairs(newHead.next)</code>，表示将其余节点进行两两交换，交换后的新的头节点为 <code>head</code> 的下一个节点。然后令 <code>newHead.next = head</code>，即完成了所有节点的交换。最后返回新的链表的头节点 <code>newHead</code>。</p><h3 id="代码-2" tabindex="-1">代码 <a class="header-anchor" href="#代码-2" aria-hidden="true">#</a></h3><div class="language-js"><pre><code><span class="token comment">/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">swapPairs</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">head</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>head <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">||</span> head<span class="token punctuation">.</span>next <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> head<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> newHead <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+  head<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token function">swapPairs</span><span class="token punctuation">(</span>newHead<span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  newHead<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> newHead<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="复杂度-2" tabindex="-1">复杂度 <a class="header-anchor" href="#复杂度-2" aria-hidden="true">#</a></h3><ul><li>时间复杂度：O(n)，其中 n 是链表的节点数量。需要对每个节点进行更新指针的操作。</li><li>空间复杂度：O(n)，其中 n 是链表的节点数量。</li></ul><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e2835e03638542f491831a64fff60fc2~tplv-k3u1fbpfcp-watermark.image" alt=""></p><h2 id="_25-k-个一组翻转链表" tabindex="-1">25. K 个一组翻转链表 <a class="header-anchor" href="#_25-k-个一组翻转链表" aria-hidden="true">#</a></h2><h3 id="题目-3" tabindex="-1">题目 <a class="header-anchor" href="#题目-3" aria-hidden="true">#</a></h3><p>来源：<a href="https://leetcode-cn.com/problems/reverse-nodes-in-k-group/" target="_blank" rel="noopener noreferrer">力扣（LeetCode）25 K 个一组翻转链表</a></p><p>难度：困难</p><div class="language-"><pre><code>给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
+
+k 是一个正整数，它的值小于或等于链表的长度。
+
+如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。
+
+进阶：
+
+- 你可以设计一个只使用常数额外空间的算法来解决此问题吗？
+- 你不能只是单纯的改变节点内部的值，而是需要实际进行节点交换。
+ 
+
+示例 1：
+</code></pre></div><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e1541f4c7b514d338ff390c5adc99976~tplv-k3u1fbpfcp-zoom-1.image" alt=""></p><div class="language-"><pre><code>输入：head = [1,2,3,4,5], k = 2
+输出：[2,1,4,3,5]
+
+示例 2：
+</code></pre></div><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36638d1e37e64e58968d3136d7230d6c~tplv-k3u1fbpfcp-zoom-1.image" alt=""></p><div class="language-"><pre><code>输入：head = [1,2,3,4,5], k = 3
+输出：[3,2,1,4,5]
+
+示例 3：
+
+输入：head = [1,2,3,4,5], k = 1
+输出：[1,2,3,4,5]
+
+示例 4：
+
+输入：head = [1], k = 1
+输出：[1]
+
+提示：
+
+- 列表中节点的数量在范围 sz 内
+- 1 &lt;= sz &lt;= 5000
+- 0 &lt;= Node.val &lt;= 1000
+- 1 &lt;= k &lt;= sz
+</code></pre></div><h3 id="思路-3" tabindex="-1">思路 <a class="header-anchor" href="#思路-3" aria-hidden="true">#</a></h3><p>本题主要考查面试者设计的能力。</p><p>我们需要把链表节点按照 <code>k</code> 个一组分组，所以可以使用一个指针 <code>head</code> 依次指向每组的头节点。这个指针每次向前移动 <code>k</code> 步，直至链表结尾。对于每个分组，我们先判断它的长度是否大于等于 <code>k</code>。若是，我们就翻转这部分链表，否则不需要翻转。</p><p>接下来的问题就是如何翻转一个分组内的子链表。翻转一个链表并不难，过程可以参考「<code>206. 反转链表</code>」。但是对于一个子链表，除了翻转其本身之外，还需要将子链表的头部与上一个子链表连接，以及子链表的尾部与下一个子链表连接。如下图所示：</p><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5e5aa9b754654ebe83c95cf35752e6b3~tplv-k3u1fbpfcp-watermark.image" alt=""></p><p>因此，在翻转子链表的时候，我们不仅需要子链表头节点 <code>head</code>，还需要有 <code>head</code> 的上一个节点 <code>pre</code>，以便翻转完后把子链表再接回 <code>pre</code>。</p><p>但是对于第一个子链表，它的头节点 <code>head</code> 前面是没有节点 <code>pre</code> 的。太麻烦了！难道只能特判了吗？答案是否定的。没有条件，我们就创造条件；没有节点，我们就创建一个节点。我们新建一个节点，把它接到链表的头部，让它作为 <code>pre</code> 的初始值，这样 <code>head</code> 前面就有了一个节点，我们就可以避开链表头部的边界条件。这么做还有一个好处，下面我们会看到。</p><p>反复移动指针 <code>head</code> 与 <code>pre</code>，对 <code>head</code> 所指向的子链表进行翻转，直到结尾，我们就得到了答案。下面我们该返回函数值了。</p><p>有的同学可能发现这又是一件麻烦事：链表翻转之后，链表的头节点发生了变化，那么应该返回哪个节点呢？照理来说，前 <code>k</code> 个节点翻转之后，链表的头节点应该是第 <code>k</code> 个节点。那么要在遍历过程中记录第 <code>k</code> 个节点吗？但是如果链表里面没有 <code>k</code> 个节点，答案又还是原来的头节点。我们又多了一大堆循环和判断要写，太崩溃了！</p><p>等等！还记得我们创建了节点 <code>pre</code> 吗？这个节点一开始被连接到了头节点的前面，而无论之后链表有没有翻转，它的 <code>next</code> 指针都会指向正确的头节点。那么我们只要返回它的下一个节点就好了。至此，问题解决。</p><h3 id="代码-3" tabindex="-1">代码 <a class="header-anchor" href="#代码-3" aria-hidden="true">#</a></h3><div class="language-js"><pre><code><span class="token comment">/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */</span>
+<span class="token keyword">const</span> <span class="token function-variable function">myReverse</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">head<span class="token punctuation">,</span> tail</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> prev <span class="token operator">=</span> tail<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+  <span class="token keyword">let</span> p <span class="token operator">=</span> head<span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>prev <span class="token operator">!==</span> tail<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> nex <span class="token operator">=</span> p<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    p<span class="token punctuation">.</span>next <span class="token operator">=</span> prev<span class="token punctuation">;</span>
+    prev <span class="token operator">=</span> p<span class="token punctuation">;</span>
+    p <span class="token operator">=</span> nex<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>tail<span class="token punctuation">,</span> head<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> <span class="token function-variable function">reverseKGroup</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">head<span class="token punctuation">,</span> k</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> hair <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  hair<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+  <span class="token keyword">let</span> pre <span class="token operator">=</span> hair<span class="token punctuation">;</span>
+
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>head<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> tail <span class="token operator">=</span> pre<span class="token punctuation">;</span>
+    <span class="token comment">// 查看剩余部分长度是否大于等于 k</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      tail <span class="token operator">=</span> tail<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>tail<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> hair<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">const</span> nex <span class="token operator">=</span> tail<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">[</span>head<span class="token punctuation">,</span> tail<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">myReverse</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span> tail<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 把子链表重新接回原链表</span>
+    pre<span class="token punctuation">.</span>next <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    tail<span class="token punctuation">.</span>next <span class="token operator">=</span> nex<span class="token punctuation">;</span>
+    pre <span class="token operator">=</span> tail<span class="token punctuation">;</span>
+    head <span class="token operator">=</span> tail<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> hair<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="复杂度-3" tabindex="-1">复杂度 <a class="header-anchor" href="#复杂度-3" aria-hidden="true">#</a></h3><ul><li>时间复杂度：O(n)，其中 n 为链表的长度。head 指针会在 O(n/k) 个节点上停留，每次停留需要进行一次 O(k) 的翻转操作。</li><li>空间复杂度：O(1)，我们只需要建立常数个变量。</li></ul><h2 id="参考文章" tabindex="-1">参考文章 <a class="header-anchor" href="#参考文章" aria-hidden="true">#</a></h2><ul><li><a href="https://leetcode-cn.com/problemset/all/" target="_blank" rel="noopener noreferrer">力扣 (LeetCode) - 题库</a></li></ul><h2 id="感谢" tabindex="-1">感谢 <a class="header-anchor" href="#感谢" aria-hidden="true">#</a></h2><p>如果本文对你有帮助 😘，就点个赞 👍 支持下吧！感谢阅读。</p><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a10ab9f539ae4a18a1262c6d273fa15f~tplv-k3u1fbpfcp-watermark.image" alt=""></p></div></div><footer class="page-footer" data-v-3d00e640 data-v-0d8328fe><div class="edit" data-v-0d8328fe><div class="edit-link" data-v-0d8328fe data-v-f484245e><a class="link" href="https://github.com/yanxugong/blog-next/edit/main/study/algorithm/linked-list.md" target="_blank" rel="noopener noreferrer" data-v-f484245e>为此页提供修改建议 <svg class="icon outbound icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-f484245e><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div><div class="updated" data-v-0d8328fe><!----></div></footer><!----><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"about_index.md\":\"2f61e43f\",\"emotion_index.md\":\"b2cf79bf\",\"index.md\":\"5cf2ec20\",\"photography_index.md\":\"b57a87ac\",\"study_algorithm_linked-list.md\":\"d9d561f4\",\"study_engineering_vite.md\":\"24f57105\",\"study_engineering_webpack-hmr.md\":\"3391673a\",\"study_engineering_webpack-loader.md\":\"227bdf8f\",\"study_engineering_webpack-main.md\":\"7122d194\",\"study_engineering_webpack-plugin.md\":\"0adcea3e\",\"study_frame_deep-react-one.md\":\"e6f368cb\",\"study_frame_deep-react-two.md\":\"d6dacd96\",\"study_index.md\":\"3ce5c2db\",\"study_js-basis_implementation-mechanism.md\":\"bc818774\",\"study_js-basis_prototype-and-prototype-chain.md\":\"3346d6ee\",\"study_js-basis_scope-and-closure.md\":\"91c81f63\",\"study_js-basis_syntax-and-api.md\":\"7a97f3b7\",\"study_js-basis_variables-and-types.md\":\"8c5d0291\",\"study_js-basis_you-do-not-konw-js-down.md\":\"7518d929\",\"study_js-basis_you-do-not-konw-js.md\":\"138d06d6\",\"study_network_from-url-to-page-render.md\":\"1fbee58a\",\"study_performance-optimization_first-screen.md\":\"dff10600\",\"study_server_go-getting-started.md\":\"9be0585c\",\"study_vue3_responsive-system.md\":\"2931a322\"}")</script>
+    <script type="module" async src="/assets/app.c22de5e0.js"></script>
+    
+  </body>
+</html>

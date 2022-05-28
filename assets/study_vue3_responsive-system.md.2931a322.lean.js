@@ -1,0 +1,1 @@
+import{_ as n,c as s,o as a,d as t}from"./app.c22de5e0.js";const _='{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"study/vue3/responsive-system.md"}',p={},o=t("",1),e=[o];function c(u,l,k,i,r,m){return a(),s("div",null,e)}var f=n(p,[["render",c]]);export{_ as __pageData,f as default};
