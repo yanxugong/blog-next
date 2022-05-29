@@ -18,6 +18,7 @@ export default defineConfig({
     editLinks: true,
     editLinkText: "为此页提供修改建议",
 
+    // TODO: 配置 Algolia 搜索
     algolia: {
       apiKey: "your_api_key",
       indexName: "index_name",
