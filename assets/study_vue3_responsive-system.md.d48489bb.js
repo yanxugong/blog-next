@@ -1,4 +1,4 @@
-import{_ as n,c as s,o as a,d as t}from"./app.acdedced.js";const _='{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"study/vue3/responsive-system.md"}',p={},o=t(`<div class="language-js"><pre><code><span class="token comment">// \u5B58\u50A8\u526F\u4F5C\u7528\u51FD\u6570\u7684\u6876</span>
+import{_ as n,c as s,o as a,d as t}from"./app.acdedced.js";const _='{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"study/vue3/responsive-system.md"}',p={},o=t(`<p>\u54CD\u5E94\u5F0F\u6570\u636E\u57FA\u672C\u5B9E\u73B0\uFF1A</p><div class="language-js"><pre><code><span class="token comment">// \u5B58\u50A8\u526F\u4F5C\u7528\u51FD\u6570\u7684\u6876</span>
 <span class="token keyword">const</span> bucket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// \u539F\u59CB\u6570\u636E</span>
@@ -22,4 +22,4 @@ import{_ as n,c as s,o as a,d as t}from"./app.acdedced.js";const _='{"title":"",
     <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre></div>`,1),e=[o];function c(u,l,k,i,r,m){return a(),s("div",null,e)}var f=n(p,[["render",c]]);export{_ as __pageData,f as default};
+</code></pre></div>`,2),e=[o];function c(u,l,k,i,r,m){return a(),s("div",null,e)}var f=n(p,[["render",c]]);export{_ as __pageData,f as default};
