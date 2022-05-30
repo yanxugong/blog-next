@@ -1,3 +1,5 @@
+响应式数据基本实现：
+
 ```js
 // 存储副作用函数的桶
 const bucket = new Set();
