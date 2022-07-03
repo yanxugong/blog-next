@@ -26,6 +26,8 @@
 ### 5. 数据结构与算法
 
 - [「重学算法」快速掌握链表题](/study/algorithm/linked-list)
+- [高频手写 JS（一）](/study/algorithm/handwriting-js-one)
+- [高频手写 JS（二）](/study/algorithm/handwriting-js-two)
 
 ### 6. 安全
 
