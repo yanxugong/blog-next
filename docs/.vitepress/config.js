@@ -22,7 +22,7 @@ export default defineConfig({
     ],
 
     editLink: {
-      pattern: "https://github.com/vuejs/vitepress/edit/main/docs/:path",
+      pattern: "https://github.com/yanxugong/blog-next/edit/main/docs/:path",
       text: "Edit this page on GitHub",
     },
 
