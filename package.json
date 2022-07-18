@@ -2,7 +2,6 @@
   "name": "vitepress-starter",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/yanxugong/blog-next",
   "license": "MIT",
   "scripts": {
     "dev": "vitepress dev docs",
@@ -10,6 +9,6 @@
     "serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "vitepress": "^0.22.4"
+    "vitepress": "^1.0.0-alpha.4"
   }
 }
