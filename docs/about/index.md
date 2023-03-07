@@ -1,6 +1,4 @@
-# 关于
-
-# Fe-interview
+# 面试
 
 ## △ 338 次 手写题库 'https://github.com/Mayandev/fe-interview-handwrite'
 
@@ -12,17 +10,17 @@
 
 **立即执行函数**是一个在定义时就会立即执行的 JavaScript 函数
 
-立即执行函数的作用
+### 立即执行函数的作用
 
 - 不必为函数命名，避免了污染全局变量
 - IIFE 内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量
 
-闭包的使用场景
+### 闭包的使用场景
 
 - 节流防抖、柯里化
 - 立即执行函数
 
-## △ 186 次 简述浏览器的渲染过程，重绘和重排在渲染过程中的哪一部分？
+## `△ 186 次 简述浏览器的渲染过程，重绘和重排在渲染过程中的哪一部分？`
 
 - 浏览器解析 URL 获取协议，主机，端口， path
 - 浏览器获取主机 IP 地址
@@ -34,11 +32,54 @@
 - 根据渲染树计算每一个节点的信息
 - 根据计算好的信息绘制页面
 
-重绘和重排
+### 重绘和重排
 
 > 回流时，以上流程会重新走一遍。重绘时，会重新计算样式，跳过中间步骤直接生成绘制列表。可见，重绘不一定导致回流，但回流一定发生了重绘。
 
-## △ 182 次 简述 diff 算法的实现机制和使用场景
+## `△ 182 次 简述 diff 算法的实现机制和使用场景`
+
+### diff 同层对比
+
+新旧虚拟 DOM 对比的时候，diff 算法比较只会在同层级进行，不会跨层级比较。所以 diff 算法是：深度优先算法、时间复杂度：O(n)
+
+### diff 对比流程
+
+当数据改变时，会触发 setter，并且通过 Dep.notify 去通知所有订阅者 Watcher，订阅者们就会调用 patch 方法，给真实 DOM 打补丁，更新相应的视图
+
+### patch 方法
+
+patch 对比当前同层的虚拟节点是否为同一种类型的标签：
+
+- 是：继续执行 patchVnode 方法进行深层比对
+- 不是：没必要比对了，直接整个节点替换成新虚拟节点
+
+> sameVnode 会比较 key 值、标签名、是否为注释节点、是否定义了 data 和当标签为 input 时，type 必须相同
+
+### patchVnode 方法
+
+主要判断：
+
+- 如果 newVnode 和 oldVnode 是同一个对象，则 return
+- 如果 newVnode 和 oldVnode 是文本节点，且文本不同，则将 el 中文本更新为 newVnode 的文本
+- 如果 newVnode 和 oldVnode 都有子节点，且不同，则对比子节点
+- 如果 oldVnode 有子节点而 newVnode 没有，则删除 el 的子节点
+- 如果 oldVnode 没有子节点而 newVnode 有，则将 newVnode 的子节点真实化之后添加到 el
+
+### updateChildren 方法
+
+子节点不完全一致，则调用 updateChildren，while 循环主要处理了以下五种情景：
+
+- oldStart 和 newStart 使用 sameVnode 方法进行比较，sameVnode(oldStart, newStart)
+- oldStart 和 newEnd 使用 sameVnode 方法进行比较，sameVnode(oldStart, newEnd)
+- oldEnd 和 newStart 使用 sameVnode 方法进行比较，sameVnode(oldEnd, newStart)
+- oldEnd 和 newEnd 使用 sameVnode 方法进行比较，sameVnode(oldEnd, newEnd)
+- 如果以上逻辑都匹配不到，再把所有旧子节点的 key 做一个映射到旧节点下标的 key -> index 表，然后用新 vnode 的 key 去找出在旧节点中可以复用的位置
+
+### Vue3.0 diff
+
+- PatchFlag。Vue3.0 对于不参与更新的元素，做静态标记并提示，只会被创建一次，在渲染时直接复用
+- cacheHandlers。事件侦听器缓存
+- 最长递增子序列
 
 ## △ 178 次 简述 Javascript 中的防抖与节流的原理并尝试实现
 
@@ -56,7 +97,18 @@
 
 ## △ 126 次 简述浏览器的缓存机制
 
-## △ 116 次 简述 Vue 的生命周期
+## `△ 116 次 简述 Vue 的生命周期`
+
+### 使用场景分析
+
+- beforeCreate 执行时组件实例还未创建，通常用于插件开发中执行一些初始化任务
+- created 组件初始化完毕，各种数据可以使用，常用于异步数据获取
+- beforeMount 未执行渲染、更新，dom 未创建
+- mounted 初始化结束，dom 已创建，可用于获取访问数据和 dom 元素
+- beforeUpdate 更新前，可用于获取更新前各种状态
+- updated 更新后，所有状态已是最新
+- beforeDestroy 销毁前，可用于一些定时器或订阅的取消
+- destroyed 组件已销毁，作用同上
 
 ## △ 106 次 简述 ES6 的新特性
 
