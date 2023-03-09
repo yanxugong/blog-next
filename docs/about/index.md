@@ -1,8 +1,43 @@
-# 面试
+# Fe-interview
 
 ## △ 338 次 手写题库 'https://github.com/Mayandev/fe-interview-handwrite'
 
 ## `△ 200 次 Vue 中双向数据绑定的实现原理是怎样的？`
+
+### Vue2
+
+- new Vue() 首先执行初始化，对 data 执行响应化处理，这个过程发生 Observe 中
+- 同时对模板执行编译，找到其中动态绑定的数据，从 data 中获取并初始化视图，这个过程发生在 Compile 中
+- 同时定义⼀个更新函数和 Watcher，将来对应数据变化时 Watcher 会调用更新函数
+- 由于 data 的某个 key 在⼀个视图中可能出现多次，所以每个 key 都需要⼀个管家 Dep 来管理多个 Watcher
+- 将来 data 中数据⼀旦发生变化，会首先找到对应的 Dep，通知所有 Watcher 执行更新函数
+
+```js
+Object.defineProperty(obj, key, {
+  enumerable: true,
+  configurable: true,
+  get: function reactiveGetter() {
+    // ...
+    if (Dep.target) {
+      // 收集依赖
+      dep.depend();
+    }
+    return value;
+  },
+  set: function reactiveSetter(newVal) {
+    // ...
+    // 通知视图更新
+    dep.notify();
+  },
+});
+```
+
+### Vue3
+
+改用 ES6 的 Proxy 解决以前使用 Object.defineProperty 所存在的一些问题
+
+- 对象新增属性为什么不更新 - $set
+- 数组变异 - 手动 observer，重写数组的方法
 
 ## `△ 188 次 什么是闭包，什么是立即执行函数，它的作用是什么？简单说一下闭包的使用场景`
 
