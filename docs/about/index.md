@@ -116,7 +116,36 @@ patch 对比当前同层的虚拟节点是否为同一种类型的标签：
 - cacheHandlers。事件侦听器缓存
 - 最长递增子序列
 
-## △ 178 次 简述 Javascript 中的防抖与节流的原理并尝试实现
+## `△ 178 次 简述 Javascript 中的防抖与节流的原理并尝试实现`
+
+```js
+// 防抖
+function debounce(fn, wait) {
+  let timeout = null;
+  return function () {
+    let context = this;
+    const args = arguments;
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      fn.apply(context, args);
+    }, wait);
+  };
+}
+
+// 节流
+function throttle(fn, wait) {
+  let pre = new Date();
+  return function () {
+    let context = this;
+    let args = arguments;
+    let now = new Date();
+    if (now - pre >= wait) {
+      fn.apply(context, args);
+      pre = now;
+    }
+  };
+}
+```
 
 ## △ 172 次 promise 有哪些状态？简述 promise.all 的实现原理
 
@@ -217,7 +246,18 @@ patch 对比当前同层的虚拟节点是否为同一种类型的标签：
 
 ## △ 36 次 CSS 实现两列布局
 
-## △ 34 次 简述虚拟 dom 实现原理
+## `△ 34 次 简述虚拟 dom 实现原理`
+
+### 为什么需要虚拟 DOM
+
+- 操作 DOM 的代价非常昂贵，频繁操作还是会出现页面卡顿，影响用户的体验
+- 跨平台、服务端渲染
+
+### 流程概括
+
+- 用 js 模拟 DOM 树，并渲染这个 DOM 树
+- 比较新老 DOM 树，得到比较的差异对象
+- 把差异对象应用到渲染的 DOM 树
 
 ## △ 34 次 如何使用 flex 实现两栏布局？
 
