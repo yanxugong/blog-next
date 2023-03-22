@@ -12,6 +12,9 @@
 - 由于 data 的某个 key 在⼀个视图中可能出现多次，所以每个 key 都需要⼀个管家 Dep 来管理多个 Watcher
 - 将来 data 中数据⼀旦发生变化，会首先找到对应的 Dep，通知所有 Watcher 执行更新函数
 
+<details>
+<summary><b>点击显示代码👇</b></summary>
+
 ```js
 Object.defineProperty(obj, key, {
   enumerable: true,
@@ -31,6 +34,8 @@ Object.defineProperty(obj, key, {
   },
 });
 ```
+
+</details>
 
 ### Vue3
 
@@ -69,7 +74,7 @@ Object.defineProperty(obj, key, {
 
 ### 重绘和重排
 
-> 回流时，以上流程会重新走一遍。重绘时，会重新计算样式，跳过中间步骤直接生成绘制列表。可见，重绘不一定导致回流，但回流一定发生了重绘。
+> 回流时，渲染流程会重新走一遍。重绘时，会重新计算样式，跳过中间步骤直接生成绘制列表。可见，重绘不一定导致回流，但回流一定发生了重绘。
 
 ## `△ 182 次 简述 diff 算法的实现机制和使用场景`
 
@@ -118,6 +123,9 @@ patch 对比当前同层的虚拟节点是否为同一种类型的标签：
 
 ## `△ 178 次 简述 Javascript 中的防抖与节流的原理并尝试实现`
 
+<details>
+<summary><b>点击显示代码👇</b></summary>
+
 ```js
 // 防抖
 function debounce(fn, wait) {
@@ -147,9 +155,76 @@ function throttle(fn, wait) {
 }
 ```
 
-## △ 172 次 promise 有哪些状态？简述 promise.all 的实现原理
+</details>
 
-## △ 166 次 简述 CSS 盒模型
+## `△ 172 次 promise 有哪些状态？简述 promise.all 的实现原理`
+
+### Promise 状态
+
+- 待定（pending）：初始状态，既没有被兑现，也没有被拒绝。
+- 已兑现（fulfilled）：意味着操作成功完成。
+- 已拒绝（rejected）：意味着操作失败。
+
+### promise.all 的实现原理
+
+<details>
+<summary><b>点击显示代码👇</b></summary>
+
+```js
+function myPromiseAll(promises) {
+  return new Promise(function (resolve, reject) {
+    if (!isArray(promises)) {
+      return reject(new TypeError("arguments must be an array"));
+    }
+    var resolvedCounter = 0;
+    var promiseNum = promises.length;
+    var resolvedValues = new Array(promiseNum);
+    for (var i = 0; i < promiseNum; i++) {
+      (function (i) {
+        Promise.resolve(promises[i]).then(
+          function (value) {
+            resolvedCounter++;
+            resolvedValues[i] = value;
+            if (resolvedCounter === promiseNum) {
+              return resolve(resolvedValues);
+            }
+          },
+          function (reason) {
+            return reject(reason);
+          }
+        );
+      })(i);
+    }
+  });
+}
+```
+
+</details>
+
+## `△ 166 次 简述 CSS 盒模型`
+
+在 CSS 中，盒子模型可以分成：
+
+- W3C 标准盒子模型 box-sizing: content-box
+- IE 怪异盒子模型 box-sizing: border-box
+
+### 标准盒子模型
+
+![标准盒子模型](https://static.vue-js.com/c0e1d2e0-8f9b-11eb-85f6-6fac77c0c9b3.png)
+
+- 盒子总宽度 = width + padding + border + margin
+- 盒子总高度 = height + padding + border + margin
+
+width/height 只是内容高度，不包含 padding 和 border 值
+
+### IE 怪异盒子模型
+
+![IE 怪异盒子模型](https://static.vue-js.com/cfbb3ef0-8f9b-11eb-ab90-d9ae814b240d.png)
+
+- 盒子总宽度 = width + margin;
+- 盒子总高度 = height + margin;
+
+width/height 包含了 padding 和 border 值
 
 ## △ 142 次 简述 Javascript 原型以及原型链
 
